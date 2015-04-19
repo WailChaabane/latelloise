@@ -1,0 +1,27 @@
+extends ../header/layout
+block head
+	link(rel="stylesheet", href="/css/product_slide.css")
+block content
+	include ./include_slides
+	.section.row
+		.col.s12.m12.l12
+			a.dropdown-button.btn.deep-orange.waves-effect.waves-dark(href='#', data-activates='dropdownCat') Categories
+			// Dropdown Structure
+			ul#dropdownCat.dropdown-content
+				li
+					a.filter.deep-orange-text(href='#!',data-filter='all') Show All
+				li
+					a.filter.deep-orange-text(href='#!',data-filter='.category_1') Categorie 1
+				li
+					a.filter.deep-orange-text(href='#!',data-filter='.category_2') Categorie 2
+
+	.section.row#Container
+		
+		
+block footerSupp
+	script(src="/js/lib/underscore.min.js")
+	script(src="/js/lib/jquery.mixitup.min.js")
+	script(src="/js/handler/contentInit.js")
+	script(src="/js/handler/product_slide.js")
+	script(src="/js/handler/product_filter.js")
+		

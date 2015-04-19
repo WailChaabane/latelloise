@@ -1,0 +1,84 @@
+extends ../header/layoutAdmin
+block head
+	link(rel="stylesheet", href="/css/lib/resizeable-image.css")
+	link(rel="stylesheet",href="/css/lib/sir-trevor.css")
+block content
+	main
+		.container
+			.section.row
+				form#configSociete.card-panel.col.s12.m12.l12.animated.fadeInDown(action='/admin/societe', enctype="multipart/form-data")
+					.input-field.col.s12.m6.l6
+						i.mdi-social-domain.prefix
+						input#entreprise.validate(type='text',pattern="^[a-zA-Z0-9\ \.\-\_]{1,25}$",name="nom")
+						label(for='entreprise') Nom de l'entreprise
+					.file-field.col.s12.m6.l6.input-field
+						input.file-path.validate(type='text',placeholder="chemin du logo de l'entreprise")
+						.btn.btn-flat.waves-effect.waves-light
+							span Logo
+							input(type='file', name="logo",accept="image/*")
+					.col.s12.m12.l12.center-align#imgResult
+						.content
+							.component
+								.overlay
+									.overlay-inner
+								img#imgUploaded.resize-image
+								a.btn-flat.blue.white-text.btn-crop.js-crop Couper
+									i.mdi-content-content-cut.right
+					.input-field.col.s12.m12.l12
+						i.mdi-content-filter-list.prefix
+						textarea#desc.materialize-textarea(name="description")
+						label(for='desc') Description de l'entreprise
+					.input-field.col.s12.m12.l12
+						i.mdi-communication-location-on.prefix
+						input#coord.validate(type='text',name="coordones")
+						label(for='coord') Adresse de l'entreprise
+					.input-field.col.s12.m12.l12
+						i.mdi-hardware-keyboard.prefix
+						input#keys.validate(type='text',name="keywords")
+						label(for='keys') Mots Clés du site
+					.input-field.col.s12.m6.l6
+						i.mdi-communication-email.prefix
+						input#email.validate(type='email',name="email")
+						label(for='email') Email de l'entreprise
+					.input-field.col.s12.m6.l6
+						i.mdi-communication-call.prefix
+						input#contact.validate(type='text',name="contact")
+						label(for='contact') Telephone de l'entreprise
+					.input-field.col.s12.m3.l3
+						i.mdi-action-room.prefix
+						input#longitude.validate(type='text',name="long")
+						label(for='longitude') Longitude
+					.input-field.col.s12.m3.l3
+						i.mdi-action-room.prefix
+						input#laltitude.validate(type='text',name="lalt")
+						label(for='laltitude') Laltitude
+					.col.s12.m6.l6
+						p Glissez le markeur sur la position de l'entreprise.
+						.card-panel#actuel-map
+					.input-field.col.s12.m12.l12
+						i.mdi-action-subject.prefix
+						textarea#pres.materialize-textarea.js-st-instance(name="presentation")
+						label(for='pres') Présentation de l'entreprise
+					.col.s12.m12.l12
+						.input-field.col.s12.m6.l6.center-align
+							button.btn-flat.teal.white-text.waves-effect.waves-light.btn-large(type='submit')
+								| Sauvegarder
+								i.mdi-navigation-check.right
+						.input-field.col.s12.m6.l6.center-align
+							button.btn.waves-effect.waves-light-blue.btn-large(type='reset')
+								| Reset
+					.input-field.col.s12.m12.l12.center-align
+						#loader.preloader-wrapper.big
+							.spinner-layer.spinner-green-only
+								.circle-clipper.left
+									.circle
+block footerSupp
+	script(src="/js/lib/jquery.form.min.js")
+	script(src="/js/lib/eventable.min.js")
+	script(src="/js/lib/sir-trevor.min.js")
+	//- script(src="/js/lib/google.map.js")
+	script(src="/js/lib/resizeableImage.js")
+	script(src="/js/handler/config_societe.js")
+	script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true")
+	script(src="/js/handler/google-map-geo.js")
+	

@@ -1,0 +1,16 @@
+footer.page-footer.blue-grey.darken-4
+	.footer-copyright
+		.container
+			| © 2015 Copyright
+			a.grey-text.text-lighten-4(href='#!')  W.Chaabane
+			//a.grey-text.text-lighten-4.right(href='#!') W.Chaabane
+			a.grey-text.text-lighten-3.right(href="http://www.pcmax-dz.com",target="_blanc") PCMAX
+
+
+script(src="/js/lib/jquery-2.1.1.min.js")
+script(src="/js/lib/jquery.form.min.js")
+script(src="/js/lib/materialize.min.js")
+script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPnwSQsJBCieFtEZWO9XQmuVbw3NonPSM")
+script.
+	var longitude= #{entreprise.long},laltitude= #{entreprise.lalt};
+script(src="/js/handler/map.js")

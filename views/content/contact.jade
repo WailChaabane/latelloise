@@ -1,0 +1,71 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title= entreprise.nom
+		meta(name="description", content="#{entreprise.description}")
+		meta(name="keywords", content="#{entreprise.keywords}")
+		meta(name="author", content="Wail Chaabane")
+		meta(name="viewport" ,content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		link(rel='stylesheet', href='/css/lib/materialize.min.css')
+		link(rel='stylesheet', href='/css/lib/animate.css')
+		link(rel='stylesheet', href='/css/lib/loader.min.css')
+		link(rel='stylesheet', href='/css/style.css')
+		script(src="/js/lib/modernizer.min.js")
+		
+	body
+		.contentPage
+			include ../header/loader
+			.mainPage
+				include ../header/menu
+				.row
+					.col.s12.m12.l12#map-canvas
+						
+				.section.row
+					.col.s12.m12.l8
+						form#contactForm.card-panel.col.s12.m12.l12.animated.zoomIn(method="post",action="/contact")
+							.col.s12.m12.l12
+								h4.blue-grey-text.darken-4 Contactez Nous
+							.input-field.col.s12.m6.l6
+								i.blue-grey-text.mdi-content-mail.prefix
+								input#mail.validate(type='email',name="email",required)
+								label.blue-grey-text(for='mail') Email
+							.input-field.col.s12.m12.l12
+								i.blue-grey-text.mdi-action-subject.prefix
+								textarea#message.materialize-textarea.validate(name="message",required)
+								label.blue-grey-text(for='message') Message
+							.input-field.col.s12.m4.offset-m4.l4.offset-l4.right-align
+								button.btn.white.deep-orange-text.waves-effect.waves-deep-orange(type='reset')
+									| Reset
+							.input-field.col.s12.m4.l4.center-align
+								button.btn-flat.blue-grey.white-text.waves-effect.waves-orange(type='submit')
+									| Envoyer
+									i.mdi-content-send.right
+							
+							.input-field.col.s12.m12.l12.center-align
+								#loader.preloader-wrapper.big
+									.spinner-layer.spinner-green-only
+										.circle-clipper.left
+											.circle
+
+					.col.s12.m12.l4
+						.card-panel
+							h4.blue-grey-text.darken-4 Coordonnées
+							h6.deep-orange-text
+								i.mdi-social-location-city.small.prefix.blue-grey-text.darken-4
+								| #{entreprise.nom}
+							address.deep-orange-text
+								i.mdi-maps-place.small.prefix.blue-grey-text.darken-4
+								| #{entreprise.coordones}
+							span.deep-orange-text
+								i.mdi-maps-local-phone.small.prefix.blue-grey-text.darken-4
+								|  #{entreprise.contact}
+							br
+							span.deep-orange-text
+								i.mdi-content-mail.small.prefix.blue-grey-text.darken-4
+								|   #{entreprise.email}
+				include ../footer/footerContact
+		script(src="/js/handler/preloader.js")
+		script(src="/js/handler/contentInit.js")
+		script(src="/js/handler/send_message.js")
+		

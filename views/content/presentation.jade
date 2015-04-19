@@ -1,0 +1,24 @@
+extends ../header/layout
+block head
+block content
+	.parallax-container.heighted.section
+		.parallax
+			img(src='/img/pres.jpg')
+	.section
+		.container
+			.card-panel
+				.row
+					.col.12.m4.l4.right
+						img.responsive-img(src="#{entreprise.logo}")
+					.col.s12.m8.l8
+					h4.deep-orange-text LA TELLOISE
+					!= entreprise.presentation
+				.row
+					.col.s4
+					.col.s4
+					.col.s4
+
+
+block footerSupp
+	script(src="/js/handler/contentInit.js")
+		

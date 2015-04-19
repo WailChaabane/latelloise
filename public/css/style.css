@@ -1,0 +1,251 @@
+/* loader utils*/
+
+.mainPage{
+    opacity: 0;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    transition: opacity 1s ease;
+}
+#map-canvas{
+	height:300px;
+}
+#actuel-map{
+	height: 200px;
+}
+#dropdownCat{
+	z-index: 3;
+}
+.mainPage.loaded {
+    opacity: 1;
+}
+.parale{
+	-webkit-transform: translate3d(0%, 0px, 0px) !important;
+	-moz-transform: translate3d(0%, 0px, 0px) !important;
+	transform: translate3d(0%, 0px, 0px) !important;
+}
+.contentPage{
+	overflow: hidden;
+}
+.loaders {
+	transition: all .25s linear;
+	opacity: 0;
+}
+.heighted{
+	height: 200px;
+}
+.heighted-2{
+	height: 100% !important;
+}
+.heighted img{
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+.loaders .loader {
+	position: fixed;
+    margin: auto;
+}
+/* utils*/
+body.error404 {
+	background-image: url(../img/404-mc.jpg) !important;
+	height: 100% !important;
+	background-size: cover !important;
+	background: #000;
+	background-position: 50% top;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+.margined-top{
+	margin-top: 9em;
+}
+.margined-left{
+	margin-left: 3rem !important;
+}
+.no-margin-bottom{
+	margin-bottom: 0 !important;
+}
+.sized-font{
+	font-size: 1.6rem !important;
+}
+.no-radius{
+	border-radius: 0 !important;
+}
+.middle-text{
+	font-size: 1rem;
+}
+.card.x-small{
+	height: 180px;
+	position: relative;
+}
+.card.x-small .card-image{
+	height: 100px;
+}
+.card.x-small .card-content{
+	padding: 8px;
+	height: 80px;
+}
+.card.x-small .card-title{
+	line-height: 1.5rem;
+	font-size: 1.1rem;
+}
+.card-title-small{
+	font-size: 120% !important;
+}
+
+/*SVG*/
+.path1{
+	stroke-width:2;
+    fill:rgba(255,255,255,0.8);
+	fill-opacity:0;
+	stroke-miterlimit:2;
+	stroke-opacity: 1;
+	stroke:#fff;
+	/*stroke-dasharray: none;*/
+	stroke-dasharray: 552;
+	stroke-dashoffset: 552;
+	-webkit-animation: dash1 1s linear 1 forwards,
+		makeFill 1s ease forwards 2.5s;
+	-moz-animation: dash1 1s linear 1 forwards,
+		makeFill 1s ease forwards 2.5s;
+	animation: dash1 1s linear 1 forwards,
+		makeFill 1s ease forwards 2.5s;
+}
+.path2{
+	stroke-width:2;
+    fill:rgba(255,255,255,0.8);
+	fill-opacity:0;
+	stroke-miterlimit:2;
+	stroke-opacity: 1;
+	stroke:#fff;
+	/*stroke-dasharray: none;*/
+	stroke-dasharray: 3318;
+	stroke-dashoffset: 3318;
+	filter: drop-shadow(1px 1px 1px black);
+	-webkit-animation: dash2 3s linear 1 forwards 1s,
+		makeFill 1s ease forwards 2.5s;
+	-moz-animation: dash2 3s linear 1 forwards 1s,
+		makeFill 1s ease forwards 2.5s;
+	animation: dash2 3s linear 1 forwards 1s,
+		makeFill 1s ease forwards 2.5s;
+}
+
+@-webkit-keyframes dash2 {
+  0% {
+    stroke-dashoffset: 3318;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-moz-keyframes dash2 {
+  0% {
+    stroke-dashoffset: 3318;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes dash2 {
+  0% {
+    stroke-dashoffset: 3318;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes dash1 {
+  0% {
+    stroke-dashoffset: 552;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-moz-keyframes dash1 {
+  0% {
+    stroke-dashoffset: 552;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes dash1 {
+  0% {
+    stroke-dashoffset: 552;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes makeFill{
+	0%{
+		fill-opacity:0;
+	}
+	100%{
+
+		fill-opacity:1;
+	}
+}
+@-moz-keyframes makeFill{
+	0%{
+		fill-opacity:0;
+	}
+	100%{
+
+		fill-opacity:1;
+	}
+}
+@keyframes makeFill{
+	0%{
+		fill-opacity:0;
+	}
+	100%{
+
+		fill-opacity:1;
+	}
+}
+
+.shadowed{
+	box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.5);
+}
+.marged{
+	margin-top: 8rem;
+}
+
+.hidden{
+	display: none;
+}
+.fixed-bottom{
+	bottom:10%;
+	top:auto !important;
+}
+
+.footer-fixed {
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+}
+.no-overflow{
+	overflow-y: hidden !important;
+}
+.cann{
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+
+	background: -webkit-radial-gradient(rgba(255,255,255,0.2) 20%, rgba(0,0,0,0.6) 60%); /* Safari 5.1-6.0 */
+	background: -o-radial-gradient(rgba(255,255,255,0.2) 20%, rgba(0,0,0,0.6) 60%); /* For Opera 11.6-12.0 */
+	background: -moz-radial-gradient(rgba(255,255,255,0.2) 20%, rgba(0,0,0,0.6) 60%); /* For Firefox 3.6-15 */
+	background: radial-gradient(rgba(255,255,255,0.2) 20%, rgba(0,0,0,0.6) 60%); /* Standard syntax */
+}
+
+/* products */
+#Container .mix{
+	display: none ;
+}
+.st-text-block ul li{
+	display: list-item;
+	text-align: -webkit-match-parent;
+	list-style-type: disc;
+}

@@ -1,0 +1,26 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title= entreprise.nom
+		meta(name="description", content="#{entreprise.description}")
+		meta(name="keywords", content="#{entreprise.keywords}")
+		meta(name="author", content="Wail Chaabane")
+		meta(name="viewport" ,content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		block head
+		link(rel='stylesheet', href='/css/lib/materialize.min.css')
+		link(rel='stylesheet', href='/css/lib/animate.css')
+		link(rel='stylesheet', href='/css/lib/loader.min.css')
+		link(rel='stylesheet', href='/css/style.css')
+		script(src="/js/lib/modernizer.min.js")
+		
+	body
+		.contentPage
+			include loader
+			.mainPage
+				include menu
+				block content
+				include ../footer/footer
+				block footerSupp
+		script(src="/js/handler/preloader.js")
+		

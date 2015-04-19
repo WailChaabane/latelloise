@@ -1,0 +1,38 @@
+extends ../header/layoutLogin
+block content
+	.section.row.marged
+		form#loginForm.card-panel.col.s12.m8.offset-m2.l6.offset-l3.animated.zoomIn(method="post",action="/login")
+			.col.s12.m12.l12.center-align
+				h2.deep-orange-text Login
+			.input-field.col.s12.m12.l12
+				i.deep-orange-text.mdi-social-person.prefix
+				input#username.validate(type='text',pattern="^[a-zA-Z0-9\.\-\_]{1,25}$",name="pseudo",required)
+				label.deep-orange-text(for='username') Pseudo
+			.input-field.col.s12.m12.l12
+				i.deep-orange-text.mdi-action-https.prefix
+				input#password.validate(type='password',pattern="^[a-zA-Z0-9\.\-\_]{1,45}$",name="mdp",required)
+				label.deep-orange-text(for='password') Mot de Passe
+			.input-field.col.s12.m4.l4.center-align
+				button.btn-flat.deep-orange.white-text.waves-effect.waves-light(type='submit')
+					| Login
+					i.mdi-navigation-check.right
+			.input-field.col.s12.m4.l4.center-align
+				button.btn.white.deep-orange-text.waves-effect.waves-deep-orange(type='reset')
+					| Reset
+			.input-field.col.s12.m4.l4.center-align
+				a.btn.white.deep-orange-text.waves-effect.waves-deep-orange(href="/")
+					| Accueil
+					i.mdi-action-home.right
+			.input-field.col.s12.m12.l12.center-align
+				#loader.preloader-wrapper.big
+					.spinner-layer.spinner-green-only
+						.circle-clipper.left
+							.circle
+
+
+block footerSupp
+	script.
+		$(document).ready(function(){
+			$('.materialboxed').materialbox();
+		});
+	script(src="/js/handler/login.js")

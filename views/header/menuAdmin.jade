@@ -1,0 +1,59 @@
+header
+	nav.blue-grey.darken-3
+		.nav-wrapper
+			ul#dropdownAdmin.dropdown-content.no-overflow
+				li
+					a.blue-grey-text(href='/admin/parametre') Paramètres
+				li.divider
+				li
+					a.blue-grey-text(href='/login') Deconnecter
+
+			a.brand-logo.page-title Administrateur
+			ul.right.hide-on-med-and-down
+				li
+					a.dropdown-button(href='#!',data-beloworigin="true", data-activates='dropdownAdmin')
+						| Compte
+						i.mdi-social-person.right
+
+	.container
+		a.button-collapse.top-nav.full(href='#', data-activates='nav-mobile')
+			i.mdi-navigation-menu
+	ul#nav-mobile.side-nav.fixed
+		li.no-padding.hide-on-med-and-up.show-on-medium
+			ul.collapsible.collapsible-accordion
+				li.bold
+					a.collapsible-header.waves-effect.waves-red
+						i.mdi-social-person
+					.collapsible-body
+						ul
+							li
+								a(href='/admin/parametre') Paramètres
+							li
+								a(href='/login') Deconnecter
+
+		li.bold
+			a.waves-effect.waves-red(href='/admin/societe') Société
+		li.no-padding
+			ul.collapsible.collapsible-accordion
+				li.bold
+					a.collapsible-header.waves-effect.waves-red Gestion Produis
+					.collapsible-body
+						ul
+							li
+								a(href='/admin/ajout_prod') Ajouter Produit
+							li
+								a(href='/admin/list_prod') Liste Produits
+							li
+								a(href='/admin/ajout_cat') Ajouter Catégorie
+							li
+								a(href='/admin/list_cat') Liste Catégories
+		li.no-padding
+			ul.collapsible.collapsible-accordion
+				li.bold
+					a.collapsible-header.waves-effect.waves-red Comptes
+					.collapsible-body
+						ul
+							li
+								a(href='/admin/ajout_cpt') Ajouter Compte
+							li
+								a(href='/admin/list_cpt') Liste Comptes

@@ -1,0 +1,17 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title= entreprise.login
+		meta(name="description", content="#{entreprise.login} - #{entreprise.description}")
+		meta(name="viewport" ,content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		block head
+		link(rel='stylesheet', href='/css/lib/materialize.min.css')
+		link(rel='stylesheet', href='/css/lib/animate.css')
+		link(rel='stylesheet', href='/css/style.css')
+		script(src="/js/lib/modernizer.min.js")
+		
+	body
+		block content
+		include ../footer/footerError
+		block footerSupp

@@ -1,0 +1,13 @@
+footer.page-footer.blue-grey.darken-4
+	.footer-copyright
+		.container
+			| © 2014-2015 PCMAX , All rights reserved. 
+			a.grey-text.text-lighten-4.right(href='https://github.com/Dogfalo/materialize/blob/master/LICENSE') MIT License
+script(src="/js/lib/jquery-2.1.1.min.js")
+script(src="/js/lib/materialize.min.js")
+script.
+	$(document).ready(function(){
+		$('.materialboxed').materialbox();
+		$(".dropdown-button").dropdown({ hover: false });
+		$(".button-collapse").sideNav();
+	});

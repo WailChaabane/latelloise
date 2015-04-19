@@ -1,0 +1,21 @@
+extends ../header/layout
+block head
+	link(rel="stylesheet", href="/css/product_slide.css")
+block content
+	.parallax-container.section
+		.parallax.z-depth-2.center-align
+			.cann
+				include ./include_animate
+			img(src='/img/fruits5.jpg')
+	.section
+		.row
+			.col.s12.m12.l8
+				h4.deep-orange-text Listes des produits
+				.divider
+				include ./include_produits
+			.col.s12.m12.l4
+				include ./include_aside
+block footerSupp
+	script(src="/js/handler/contentInit.js")
+	script(src="/js/handler/product_slide.js")
+		

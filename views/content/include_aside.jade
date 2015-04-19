@@ -1,0 +1,22 @@
+.section
+	ul.collection.with-header.z-depth-1
+		li.collection-header.deep-orange
+			h5.white-text.center-align Produits Populaires
+		each prod in produits
+			li.collection-item.avatar
+				img.circle.z-depth-1(src='#{prod.image_prod}', alt='')
+				span.title.margined-left #{prod.desc_prod}
+				p.margined-left
+					| #{prod.prix_prod} DA
+					
+					span.right #{prod.date_prod}
+					br
+					if prod.etat_prod
+						span.green-text.right disponible
+					else
+						span.red-text.right non disponible
+				//- a.secondary-content(href='#!')
+				//- 	i.mdi-action-turned-in.blue-text
+.section.card-panel
+	h5.deep-orange-text Nombre de visiteurs: 
+		span.black-text= visiteurs
