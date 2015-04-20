@@ -10,7 +10,9 @@ $("#ajoutProd").submit(function(e) {
         if (inputs[i].value !== "") {
             if (inputs[i].name === "image_prod" && document.querySelector('#imgResult img').src !== null) {
                 data[inputs[i].name] = document.querySelector('#imgResult img').src;
-            } else {
+            } else if(inputs[i].name === "etat_prod") {
+                data[inputs[i].name] = (inputs[i].value ==="on")? 1 : 0;
+            }else{
                 data[inputs[i].name] = inputs[i].value;
             }
         }
@@ -18,23 +20,22 @@ $("#ajoutProd").submit(function(e) {
     var _thisAction = $(this).attr('action');
     console.log(data);
     // send data
-    // $.ajax({
-    //     url: _thisAction,
-    //     type: "POST",
-    //     data: data
-    // }).done(function(response) {
-    //     if (response.stat === 'success') {
-    //         Materialize.toast('<p>' + response.message + '</p>', 5000, 'green');
-    //     } else if (response.stat === 'failed') {
-    //         Materialize.toast('<p>' + response.message + '</p>', 5000, 'orange');
-    //     }
-    // }).fail(function(xhr) {
-    //     Materialize.toast('<p>Impossible d\' effectuer cette operation.</p>', 5000, 'red');
-    // }).complete(function() {
-    //     document.querySelector('#toast-container').className = 'fixed-bottom';
-    //     setTimeout(function() {
-    //         $(loader).removeClass('active');
-    //     }, 1000);
-    // });
-    // return false;
+    $.ajax({
+        url: _thisAction,
+        type: "POST",
+        data: data
+    }).done(function(response) {
+        if (response.stat === 'success') {
+            Materialize.toast('<p>' + response.message + '</p>', 5000, 'green');
+        } else if (response.stat === 'failed') {
+            Materialize.toast('<p>' + response.message + '</p>', 5000, 'orange');
+        }
+    }).fail(function(xhr) {
+        Materialize.toast('<p>Impossible d\' effectuer cette operation.</p>', 5000, 'red');
+    }).complete(function() {
+        document.querySelector('#toast-container').className = 'fixed-bottom';
+        setTimeout(function() {
+            $(loader).removeClass('active');
+        }, 1000);
+    });
 });

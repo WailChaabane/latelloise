@@ -249,3 +249,6 @@ body.error404 {
 	text-align: -webkit-match-parent;
 	list-style-type: disc;
 }
+.select-dropdown{
+	z-index: 1000;
+}

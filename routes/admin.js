@@ -39,6 +39,9 @@ router.post('/admin/societe', function(req, res) {
 router.get('/admin/ajout_prod', function(req, res) {
     modelprod.get_ajout_prod(req, res);
 });
+router.post('/admin/ajout_prod', function(req, res) {
+    modelprod.ajout_prod(req, res);
+});
 // router.get('/condidat/:quest', function(req, res) {
 //     if (req.session.pseudo !== undefined) {
 //         condidat.to_quiz(req, res);

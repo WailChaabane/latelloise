@@ -6,10 +6,14 @@ block content
 	main
 		.container
 			.section.row
-				form#ajoutProd.dropzone.card-panel.col.s12.m12.l12.animated.fadeInDown(action='/admin/ajout_prod',method="post", enctype="multipart/form-data")
+				form#ajoutProd.dropzone.card-panel.col.s12.m12.l12.animated.fadeInDown(action='/admin/ajout_prod',method="post")
 					.input-field.col.s12.m6.l6
 						i.mdi-content-content-paste.prefix
-						input#desig.validate(type='text',pattern="^[a-zA-Z0-9\ \.\-\_]{1,25}$",name="desc_prod", required)
+						input#desc.validate(type='text',pattern="^[a-zA-Z0-9\ \.\-\_]{1,25}$",name="desc_prod", required)
+						label(for='desc') Description du Produit
+					.input-field.col.s12.m6.l6
+						i.mdi-content-content-paste.prefix
+						textarea#desig.materialize-textarea(name="design_prod")
 						label(for='desig') Designation du Produit
 					.input-field.col.s12.m6.l6
 						i.mdi-editor-attach-money.prefix
@@ -19,6 +23,13 @@ block content
 						i.mdi-action-event.prefix
 						input#date.datepicker(type='date',name="date_prod", required)
 						label(for='date') Date d'entrée du produit
+					
+					
+					.col.s12.m4.l4.input-field.file-field
+						input.file-path.validate(type='text',placeholder="Image du produit")
+						.btn.btn-flat.waves-effect.waves-light
+							span Image
+							input(type='file', name="image_prod",accept="image/*", required)
 					.col.s12.m4.l4
 						br
 						select(name="categorie",required)
@@ -26,17 +37,10 @@ block content
 							each cat in categories
 								option(value='#{cat.id_cat}')= cat.nom_cat
 					.input-field.col.s12.m4.l4
-						input#add_cat.col.s8.m8.l8.validate(type='text', required)
+						input#add_cat.col.s8.m8.l8.validate(type='text')
 						label(for='add_cat') Ajouter Categorie
-						a.btn-floating.waves-effect.waves-light-blue
+						a#add_cat_btn.btn-floating.waves-effect.waves-light-blue
 							i.mdi-content-add
-					
-					.col.s12.m12.l12.input-field.file-field
-						input.file-path.validate(type='text',placeholder="Image du produit")
-						.btn.btn-flat.waves-effect.waves-light
-							span Image
-							input(type='file', name="image_prod",accept="image/*", required)
-					
 					.col.s12.m12.l12.center-align#imgResult
 						.content
 							.component
@@ -70,11 +74,35 @@ block content
 									.circle
 block footerSupp
 	script(src="/js/lib/resizeableImage.js")
+	script(src="/js/lib/underscore.min.js")
 	script.
 		$(document).ready(function(){
 			$('.datepicker').pickadate({
 				format: "dd-mm-yyyy"
 				});
+			$('#add_cat_btn').click(function(e){
+				var add_cat= $('#add_cat');
+				var select = document.querySelector('select[name="categorie"]');
+				var options = select.querySelectorAll('option');
+				var values=[];
+				_(options).each(function(value,index){
+					values.push(value.innerHTML);
+				});
+				if(!_.contains(values, add_cat.val())){
+					var option = document.createElement('option');
+					option.innerHTML=  add_cat.val();
+					option.value=select.querySelectorAll('option').length;
+					select.appendChild(option);
+					$('select').material_select();
+				}else{
+					add_cat.addClass('animated shake');
+					setTimeout(function() {
+						add_cat.removeClass('animated');
+						add_cat.removeClass('shake');
+					},1000);
+				}
+				
+			});
 			$('select').material_select();
 			$('input[type="file"]').change(function(e){
 				var img = document.querySelector('#imgUploaded');
